@@ -3,7 +3,7 @@
 Plugin Name: Super Socializer
 Plugin URI: https://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Media follow and more
-Version: 7.13.66
+Version: 7.13.67
 Author: Team Heateor
 Author URI: https://www.heateor.com
 Text Domain: super-socializer
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '7.13.66');
+define('THE_CHAMP_SS_VERSION', '7.13.67');
 
 // attributes to allow in the HTML of the social share and social media follow icons
 $heateorSsDefaultAttribs = array(
@@ -1581,7 +1581,7 @@ function the_champ_connect(){
 					}			
 				}
 	 		}
-		}elseif(remove_query_arg(array('code', 'state'), esc_url_raw(the_champ_get_http().$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"])) == home_url().'/SuperSocializerAuth/Yandex'){
+		}elseif(remove_query_arg(array('code', 'state', 'cid'), esc_url_raw(the_champ_get_http().$_SERVER["HTTP_HOST"].$_SERVER["REQUEST_URI"])) == home_url().'/SuperSocializerAuth/Yandex'){
 		 	$postData = array(
 				'grant_type' => 'authorization_code',
 				'code' => sanitize_text_field($_GET['code']),

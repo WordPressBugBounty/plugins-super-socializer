@@ -3,8 +3,8 @@ Contributors: Heateor, kamirkhan, mohammadfarhankhan, the_champ
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, facebook comments, single sign-on, social media, facebook login, twitter login, linkedin login, google login, vkontakte login, Windows Live Login, Microsoft Login, Wordpress login, Yahoo login, Spotify login, Dribbble login, Kakao login, Github login, Twitch login, Instagram login, dropbox login, foursquare login, disqus login, reddit login, amazon login, stackoverflow login, stack overflow login, discord login, mail.ru login, mailru login, mail ru login, gettr share, parler share, odnoklassniki login, yandex login, odnoklassniki, yandex, odnoklassniki login button, yandex login button, Rutube, Rutube share, Rutube sharing, youtube login, x, x login, x share, yelp, tiktok, threads, Google Maps, Google Translate, RSS Feed, line, mastodon, mastodon share
 Requires at least: 2.5.0
-Tested up to: 6.6.1
-Stable tag: 7.13.66
+Tested up to: 6.6.2
+Stable tag: 7.13.67
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -214,6 +214,10 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.13.67 [28 September 2024] =
+* [Bugfix] Yandex login was not working
+* [Bugfix] Social Media Follow icons are no longer nofollow
+
 = 7.13.66 [7 September 2024] =
 * [New] Added an option in the Advanced Configuration section to enable Double Opt-in for Social Login
 * [New] Added an option in the Miscellaneous section to control the behavior of the More social share icon
@@ -2829,3 +2833,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Mastodon share in the More popup was not functioning properly if "Load all Javascript files in single file" was disabled in the General Options section in the admin area
 * [Improvement] Custom Login and Register redirection URL cannot be a URL out of the website where the plugin is installed
 * [Improvement] Minor improvements
+
+= 7.13.67 [28 September 2024] =
+* [Bugfix] Yandex login was not working
+* [Bugfix] Social Media Follow icons are no longer nofollow

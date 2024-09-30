@@ -445,7 +445,7 @@ function the_champ_social_follow_shortcode($params){
 				}
 				$anchorTitle = implode(' ', $titleParts);
 			}
-			$html .= '<a aria-label="'. esc_attr($anchorTitle) .'" class="the_champ_' . esc_attr(strtolower(trim($networksLink[0]))) . '" href="' . esc_url(urldecode(trim($networksLink[1]))) . '" title="' . esc_attr($anchorTitle) . '" rel="nofollow noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle;"><span style="background-color:#' . esc_attr($bgColor[strtolower(trim($networksLink[0]))]) . ';display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;' . $iconStyle . '" class="the_champ_svg">' . $svg[strtolower(trim($networksLink[0]))] . '</span></a>';
+			$html .= '<a aria-label="'. esc_attr($anchorTitle) .'" class="the_champ_' . esc_attr(strtolower(trim($networksLink[0]))) . '" href="' . esc_url(urldecode(trim($networksLink[1]))) . '" title="' . esc_attr($anchorTitle) . '" rel="noopener" target="_blank" style="font-size:32px!important;box-shadow:none;display:inline-block;vertical-align:middle;"><span style="background-color:#' . esc_attr($bgColor[strtolower(trim($networksLink[0]))]) . ';display:inline-block;opacity:1;float:left;font-size:32px;box-shadow:none;display:inline-block;font-size:16px;padding:0 4px;vertical-align:middle;background-repeat:repeat;overflow:hidden;padding:0;cursor:pointer;' . $iconStyle . '" class="the_champ_svg">' . $svg[strtolower(trim($networksLink[0]))] . '</span></a>';
 		}
 		$html .= '</div>';
 		$html .= '<div style="clear:both"></div>';
