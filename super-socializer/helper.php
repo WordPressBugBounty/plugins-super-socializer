@@ -6,6 +6,7 @@ function the_champ_settings_saved_notification(){
 	if(isset($_GET['settings-updated']) && sanitize_text_field($_GET['settings-updated']) == 'true'){
 		return '<div class="notice notice-success is-dismissible"><p><strong>'.__('Settings saved', 'super-socializer').'</strong></p></div>';
 	}
+	return '';
 }
 
 /**
@@ -99,8 +100,11 @@ function the_champ_login_notifications($loginOptions){
 function the_champ_general_options_page(){
 	// facebook options
 	global $theChampGeneralOptions, $heateorSsAllowedTags;
+	$message = the_champ_settings_saved_notification();
 	// message on saving options
-	echo wp_kses(the_champ_settings_saved_notification(), $heateorSsAllowedTags);
+	if($message){
+		echo wp_kses($message, $heateorSsAllowedTags);
+	}
 	require 'admin/general_options.php';
 }
 
@@ -110,8 +114,11 @@ function the_champ_general_options_page(){
 function the_champ_facebook_page(){
 	// facebook options
 	global $theChampFacebookOptions, $heateorSsAllowedTags;
+	$message = the_champ_settings_saved_notification();
 	// message on saving options
-	echo wp_kses(the_champ_settings_saved_notification(), $heateorSsAllowedTags);
+	if($message){
+		echo wp_kses($message, $heateorSsAllowedTags);
+	}
 	require 'admin/social_commenting.php';
 }
 
@@ -121,9 +128,16 @@ function the_champ_facebook_page(){
 function the_champ_social_login_page(){
 	// social login options
 	global $theChampLoginOptions, $theChampFacebookOptions, $theChampIsBpActive, $heateorSsAllowedTags;
+	$message = the_champ_settings_saved_notification();
 	// message on saving options
-	echo wp_kses(the_champ_settings_saved_notification(), $heateorSsAllowedTags);
-	echo wp_kses(the_champ_login_notifications($theChampLoginOptions), $heateorSsAllowedTags);
+	if($message){
+		echo wp_kses($message, $heateorSsAllowedTags);
+	}
+	$loginNotification = the_champ_login_notifications($theChampLoginOptions);
+	// message on saving options
+	if($loginNotification){
+		echo wp_kses($loginNotification, $heateorSsAllowedTags);
+	}
 	require 'admin/social_login.php';
 }
 
@@ -145,8 +159,11 @@ function the_champ_social_sharing_page(){
 	if(!isset($theChampSharingOptions['vertical_sharing_shape'])){
 		$theChampSharingOptions['vertical_sharing_shape'] = 'square';
 	}
+	$message = the_champ_settings_saved_notification();
 	// message on saving options
-	echo wp_kses(the_champ_settings_saved_notification(), $heateorSsAllowedTags);
+	if($message){
+		echo wp_kses($message, $heateorSsAllowedTags);
+	}
 	require 'admin/social_sharing.php';
 }
 
@@ -156,8 +173,11 @@ function the_champ_social_sharing_page(){
 function the_champ_like_buttons_page(){
 	// social counter options
 	global $theChampCounterOptions, $theChampIsBpActive, $heateorSsAllowedTags;
+	$message = the_champ_settings_saved_notification();
 	// message on saving options
-	echo wp_kses(the_champ_settings_saved_notification(), $heateorSsAllowedTags);
+	if($message){
+		echo wp_kses($message, $heateorSsAllowedTags);
+	}
 	require 'admin/like_buttons.php';
 }
 

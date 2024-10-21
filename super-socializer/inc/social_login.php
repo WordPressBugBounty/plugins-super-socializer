@@ -162,35 +162,35 @@ function the_champ_login_user($userId, $profileData = array(), $socialId = '', $
 	}
 	$user = get_user_by('id', $userId);
 	if($update && !get_user_meta($userId, 'thechamp_dontupdate_avatar', true)){
-		global $theChampLoginOptions;
-		if(isset($profileData['avatar']) && $profileData['avatar'] != ''){
-			if($profileData['provider'] == 'facebook'){
-				$dir = wp_upload_dir();
-			 	if(!file_exists($dir['basedir']. '/heateor/'. $profileData['id'] .'.jpeg')){
-			        update_user_meta($userId, 'thechamp_avatar', $profileData['avatar']);
-			    }
-			}elseif($profileData['provider'] == 'linkedin' || isset($theChampLoginOptions['save_avatar'])){
-				$localAvatarUrl = heateor_ss_save_social_avatar($profileData['avatar'], $profileData['id']);
-				if($localAvatarUrl){
-					update_user_meta($userId, 'thechamp_avatar', $localAvatarUrl);
+		if($profileData['provider'] == 'facebook'){
+			$dir = wp_upload_dir();
+		 	if(!file_exists($dir['basedir'] . '/heateor/' . $profileData['id'] . '.jpeg')){
+		        update_user_meta($userId, 'thechamp_avatar', '');
+		    }
+		    if(!file_exists($dir['basedir'] . '/heateor/' . $profileData['id'] . '_large.jpeg')){
+		        update_user_meta($userId, 'thechamp_large_avatar', '');
+		    }
+		}else{
+			global $theChampLoginOptions;
+			if(isset($profileData['avatar']) && $profileData['avatar'] != ''){
+				if($profileData['provider'] == 'linkedin' || isset($theChampLoginOptions['save_avatar'])){
+					$localAvatarUrl = heateor_ss_save_social_avatar($profileData['avatar'], $profileData['id']);
+					if($localAvatarUrl){
+						update_user_meta($userId, 'thechamp_avatar', $localAvatarUrl);
+					}
+				}else{
+					update_user_meta($userId, 'thechamp_avatar', $profileData['avatar']);
 				}
-			}else{
-				update_user_meta($userId, 'thechamp_avatar', $profileData['avatar']);
 			}
-		}
-		if(isset($profileData['large_avatar']) && $profileData['large_avatar'] != ''){
-			if($profileData['provider'] == 'facebook'){
-				$dir = wp_upload_dir();
-			 	if(!file_exists($dir['basedir']. '/heateor/'. $profileData['id'] .'_large.jpeg')){
-			        update_user_meta($userId, 'thechamp_large_avatar', $profileData['large_avatar']);
-			    }
-			}elseif($profileData['provider'] == 'linkedin' || isset($theChampLoginOptions['save_avatar'])){
-				$localLargeAvatarUrl = heateor_ss_save_social_avatar($profileData['large_avatar'], $profileData['id'] . '_large');
-				if($localLargeAvatarUrl){
-					update_user_meta($userId, 'thechamp_large_avatar', $localLargeAvatarUrl);
+			if(isset($profileData['large_avatar']) && $profileData['large_avatar'] != ''){
+				if($profileData['provider'] == 'linkedin' || isset($theChampLoginOptions['save_avatar'])){
+					$localLargeAvatarUrl = heateor_ss_save_social_avatar($profileData['large_avatar'], $profileData['id'] . '_large');
+					if($localLargeAvatarUrl){
+						update_user_meta($userId, 'thechamp_large_avatar', $localLargeAvatarUrl);
+					}
+				}else{
+					update_user_meta($userId, 'thechamp_large_avatar', $profileData['large_avatar']);
 				}
-			}else{
-				update_user_meta($userId, 'thechamp_large_avatar', $profileData['large_avatar']);
 			}
 		}
 	}
@@ -414,6 +414,10 @@ function the_champ_create_user($profileData, $verification = false){
 function the_champ_social_avatar($avatar, $avuser, $size, $default, $alt = ''){
 	global $theChampLoginOptions;
 	if(isset($theChampLoginOptions['enable']) && isset($theChampLoginOptions['avatar'])){
+		global $pagenow;
+		if(is_admin() && $pagenow == "options-discussion.php"){
+			return $avatar;
+		}
 		if(isset($theChampLoginOptions['avatar_quality']) && $theChampLoginOptions['avatar_quality'] == 'better'){
 			$avatarType = 'thechamp_large_avatar';
 		}else{
@@ -442,7 +446,7 @@ function the_champ_social_avatar($avatar, $avuser, $size, $default, $alt = ''){
 	}
 	return $avatar;
 }
-add_filter('get_avatar', 'the_champ_social_avatar', 100000, 5);
+add_filter('get_avatar', 'the_champ_social_avatar', 10, 5);
 add_filter('bp_core_fetch_avatar', 'the_champ_buddypress_avatar', 10, 2);
 
 /**
@@ -790,7 +794,7 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 	    $temp['id']           = isset($profileData->id) ? sanitize_text_field($profileData->id) : '';
 	    $temp['large_avatar'] = '';
 	}elseif($provider == 'disqus'){
-	    $temp['email']        = isset($profileData->response) && isset($profileData->response->email) ? sanitize_email($profileData->response->email) : '';
+	    $temp['email']        = '';
 	    $temp['bio']          = '';
 	    $temp['username']     = '';
 	    $temp['link']         = isset($profileData->response) && isset($profileData->response->profileUrl) && heateor_ss_validate_url($profileData->response->profileUrl) ? trim($profileData->response->profileUrl) : '';

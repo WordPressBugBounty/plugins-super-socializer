@@ -3,7 +3,7 @@
 Plugin Name: Super Socializer
 Plugin URI: https://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Media follow and more
-Version: 7.13.67
+Version: 7.13.68
 Author: Team Heateor
 Author URI: https://www.heateor.com
 Text Domain: super-socializer
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '7.13.67');
+define('THE_CHAMP_SS_VERSION', '7.13.68');
 
 // attributes to allow in the HTML of the social share and social media follow icons
 $heateorSsDefaultAttribs = array(
@@ -201,7 +201,13 @@ function heateor_ss_is_curl_loaded(){
  * Hook the plugin function on 'init' event.
  */
 function the_champ_init(){
-	global $theChampSharingOptions;
+	global $theChampSharingOptions, $theChampFacebookOptions, $theChampCounterOptions, $theChampLoginOptions;
+
+	$theChampFacebookOptions = get_option('the_champ_facebook');
+	$theChampSharingOptions = get_option('the_champ_sharing');
+	$theChampCounterOptions = get_option('the_champ_counter');
+	$theChampLoginOptions = get_option('the_champ_login');
+	
 	add_action('wp_enqueue_scripts', 'the_champ_load_event');
 	add_action('wp_enqueue_scripts', 'the_champ_frontend_scripts');
 	add_action('wp_enqueue_scripts', 'the_champ_frontend_styles');
@@ -2873,6 +2879,7 @@ function the_champ_save_default_options(){
 		'same_tab_login' => '1',
 		'allow_cyrillic' => array(),
 		'disable_sl_admin' => '1',
+		'allow_cyrillic' => array('cyrillic', 'arabic', 'han'),
 		'linkedin_login_type' => 'oauth'
 	));
 	

@@ -171,7 +171,7 @@ class TheChampSharingWidget extends WP_Widget {
 		$cachedShareCount = heateor_ss_get_cached_share_count($shareCountTransientId);
 
 		global $heateorSsAllowedTags;
-		echo wp_kses("<div class='the_champ_sharing_container the_champ_horizontal_sharing' " . (the_champ_is_amp_page() ? '' : 'data-super-socializer-href="' . (isset($shareCountUrl) && $shareCountUrl ? $shareCountUrl : $sharingUrl) . '"') . ($cachedShareCount === false || the_champ_is_amp_page() ? "" : "data-super-socializer-no-counts='1' ") .">", $heateorSsAllowedTags );
+		echo wp_kses("<div class='the_champ_sharing_container the_champ_horizontal_sharing' " . (the_champ_is_amp_page() ? '' : 'data-super-socializer-href="' . (isset($shareCountUrl) && $shareCountUrl ? $shareCountUrl : $sharingUrl) . '"') . ($cachedShareCount === false || the_champ_is_amp_page() ? "" : "data-super-socializer-no-counts='1' ") .">", $heateorSsAllowedTags);
 		
 		echo $before_widget;
 		

@@ -9,5 +9,55 @@
             <key name="tc_placeholder" />
             <key name="ppu_placeholder" />
         </key>
+        <key name="the_champ_sharing">
+            <key name="title" />
+        </key>
+        <key name="the_champ_counter">
+            <key name="title" />
+        </key>
+        <key name="the_champ_facebook">
+            <key name="commenting_label" />
+            <key name="label_wordpress_comments" />
+            <key name="label_facebook_comments" />
+            <key name="label_disqus_comments" />
+        </key>
     </admin-texts>
+    <shortcodes>
+        <shortcode>
+            <tag>TheChamp-Sharing</tag>
+            <attributes>
+                <attribute>title</attribute>
+            </attributes>
+        </shortcode>
+        <shortcode>
+            <tag>TheChamp-Login</tag>
+            <attributes>
+                <attribute>title</attribute>
+            </attributes>
+        </shortcode>
+        <shortcode>
+            <tag>TheChamp-FB-Comments</tag>
+            <attributes>
+                <attribute>title</attribute>
+            </attributes>
+        </shortcode>
+        <shortcode>
+            <tag>TheChamp-Counter</tag>
+            <attributes>
+                <attribute>title</attribute>
+            </attributes>
+        </shortcode>
+        <shortcode>
+            <tag>TheChamp-Social-Linking</tag>
+            <attributes>
+                <attribute>title</attribute>
+            </attributes>
+        </shortcode>
+        <shortcode>
+            <tag>TheChamp-Social-Follow</tag>
+            <attributes>
+                <attribute>title</attribute>
+            </attributes>
+        </shortcode>
+    </shortcodes>
 </wpml-config>
