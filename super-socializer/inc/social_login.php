@@ -436,12 +436,13 @@ function the_champ_social_avatar($avatar, $avuser, $size, $default, $alt = ''){
 			$user = get_user_by('email', $avuser);
 			$userId = isset($user->ID) ? $user->ID : 0;
 		}
-
-		if($avatarType == 'thechamp_large_avatar' && get_user_meta($userId, $avatarType, true) == ''){
-			$avatarType = 'thechamp_avatar';
-		}
-		if(!empty($userId) && ($userAvatar = get_user_meta($userId, $avatarType, true)) !== false && strlen(trim($userAvatar)) > 0){
-			return '<img alt="' . esc_attr($alt) . '" src="' . $userAvatar . '" class="avatar avatar-' . $size . ' " height="' . $size . '" width="' . $size . '" style="height:'. $size .'px;width:'. $size .'px" />';
+		if($userId > 0){
+			if($avatarType == 'thechamp_large_avatar' && get_user_meta($userId, $avatarType, true) == ''){
+				$avatarType = 'thechamp_avatar';
+			}
+			if(($userAvatar = get_user_meta($userId, $avatarType, true)) !== false && strlen(trim($userAvatar)) > 0){
+				return '<img alt="' . esc_attr($alt) . '" src="' . $userAvatar . '" class="avatar avatar-' . $size . ' " height="' . $size . '" width="' . $size . '" style="height:'. $size .'px;width:'. $size .'px" />';
+			}
 		}
 	}
 	return $avatar;
@@ -643,6 +644,9 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 	}elseif($provider == 'vkontakte'){
 		$temp['id'] = isset($profileData['id']) ? sanitize_text_field($profileData['id']) : '';
 		$temp['email'] = '';
+		if(isset($profileData['verified']) && $profileData['verified'] == 1 && isset($profileData['email']) && $profileData['email'] != ''){
+	    	$temp['email'] = sanitize_email($profileData['email']);
+	    }
 		$temp['name'] = '';
 		$temp['username'] = isset($profileData['screen_name']) ? $profileData['screen_name'] : '';
 		$temp['first_name'] = isset($profileData['first_name']) ? $profileData['first_name'] : '';
@@ -747,7 +751,7 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		$temp['avatar'] = isset($profileData->avatar_url) && heateor_ss_validate_url($profileData->avatar_url) !== false ? trim($profileData->avatar_url) : '';
 		$temp['large_avatar'] = '';
 	}elseif($provider == 'spotify'){
-		$temp['email'] = isset($profileData->email) ? sanitize_email($profileData->email) : '';
+		$temp['email'] = '';
 		$temp['bio'] = '';
 		$temp['username'] = isset($profileData->display_name) ? sanitize_text_field($profileData->display_name) : '';
 		$temp['link'] = isset($profileData->external_urls) && isset($profileData->external_urls->spotify) && heateor_ss_validate_url($profileData->external_urls->spotify) !== false ? trim($profileData->external_urls->spotify) : '';

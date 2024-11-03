@@ -1202,7 +1202,7 @@
 						<tbody id="the_champ_disqus_options" <?php echo isset($theChampLoginOptions['providers']) && in_array('disqus', $theChampLoginOptions['providers']) ? '' : 'style="display:none"'; ?>>
 						<tr>
 							<th>
-							<label for="the_champ_sl_disqus_key"><?php _e("Disqus Public Key", 'super-socializer'); ?></label><img id="the_champ_sl_disqus_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							<label for="the_champ_sl_disqus_key"><?php _e("Disqus API Key", 'super-socializer'); ?></label><img id="the_champ_sl_disqus_key_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							</th>
 							<td>
 							<input id="the_champ_sl_disqus_key" name="the_champ_login[disqus_public_key]" type="text" value="<?php echo $theChampLoginOptions['disqus_public_key'] ?>" />
