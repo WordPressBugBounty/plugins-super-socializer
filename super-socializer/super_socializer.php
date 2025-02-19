@@ -3,7 +3,7 @@
 Plugin Name: Super Socializer
 Plugin URI: https://super-socializer-wordpress.heateor.com
 Description: A complete 360 degree solution to provide all the social features like Social Login, Social Commenting, Social Sharing, Social Media follow and more
-Version: 7.14
+Version: 7.14.2
 Author: Team Heateor
 Author URI: https://www.heateor.com
 Text Domain: super-socializer
@@ -11,7 +11,7 @@ Domain Path: /languages
 License: GPL2+
 */
 defined('ABSPATH') or die("Cheating........Uh!!");
-define('THE_CHAMP_SS_VERSION', '7.14');
+define('THE_CHAMP_SS_VERSION', '7.14.2');
 
 // attributes to allow in the HTML of the social share and social media follow icons
 $heateorSsDefaultAttribs = array(
@@ -288,15 +288,17 @@ function the_champ_connect(){
 	global $theChampLoginOptions;
 
 	// verify email
-	if((isset($_GET['SuperSocializerKey']) && ($verificationKey = sanitize_text_field($_GET['SuperSocializerKey'])) != '') || (isset($_GET['supersocializerkey']) && ($verificationKey = sanitize_text_field($_GET['supersocializerkey'])) != '')){
-		$users = get_users('meta_key=thechamp_key&meta_value='.$verificationKey);
-		if(count($users) > 0 && isset($users[0]->ID)){
-			delete_user_meta($users[0]->ID, 'thechamp_key');
-			if(isset($theChampLoginOptions['double_optin'])){
-				heateor_ss_new_user_notification($users[0]->ID);
+	if((isset($_GET['SuperSocializerKey']) &&  ($verificationKey = sanitize_text_field($_GET['SuperSocializerKey'])) != '') || (isset($_GET['supersocializerkey']) && ($verificationKey = sanitize_text_field($_GET['supersocializerkey'])) != '')){
+		if(ctype_digit($verificationKey)){
+			$users = get_users('meta_key=thechamp_key&meta_value='.$verificationKey);
+			if(count($users) > 0 && isset($users[0]->ID)){
+				delete_user_meta($users[0]->ID, 'thechamp_key');
+				if(isset($theChampLoginOptions['double_optin'])){
+					heateor_ss_new_user_notification($users[0]->ID);
+				}
+				wp_redirect(esc_url(home_url()).'?SuperSocializerVerified=1');
+				die;
 			}
-			wp_redirect(esc_url(home_url()).'?SuperSocializerVerified=1');
-			die;
 		}
 	}
 

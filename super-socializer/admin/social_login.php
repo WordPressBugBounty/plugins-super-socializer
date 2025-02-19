@@ -1872,6 +1872,23 @@
 
 						<tr>
 							<th>
+							<label for="the_champ_sl_email_username"><?php _e("Use Email address as Username", 'super-socializer'); ?></label><img id="the_champ_sl_email_username_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
+							</th>
+							<td>
+							<input id="the_champ_sl_email_username" name="the_champ_login[username_email]" type="checkbox" <?php echo isset($theChampLoginOptions['username_email']) ? 'checked' : '';?> value="1" />
+							</td>
+						</tr>
+						
+						<tr class="the_champ_help_content" id="the_champ_sl_email_username_help_cont">
+							<td colspan="2">
+							<div>
+							<?php _e('Username of the new user will be their email address', 'super-socializer') ?>
+							</div>
+							</td>
+						</tr>
+
+						<tr>
+							<th>
 							<label for="the_champ_sl_username_email"><?php _e("Generate Username from Email address", 'super-socializer'); ?></label><img id="the_champ_sl_username_email_help" class="the_champ_help_bubble" src="<?php echo plugins_url('../images/info.png', __FILE__) ?>" />
 							</th>
 							<td>

@@ -3,8 +3,8 @@ Contributors: Heateor, kamirkhan, mohammadfarhankhan, the_champ
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, facebook comments, single sign-on, social media, facebook login, twitter login, linkedin login, google login, vkontakte login, Windows Live Login, Microsoft Login, Wordpress login, Yahoo login, Spotify login, Dribbble login, Kakao login, Github login, Twitch login, Instagram login, dropbox login, foursquare login, disqus login, reddit login, amazon login, stackoverflow login, stack overflow login, discord login, mail.ru login, mailru login, mail ru login, gettr share, parler share, odnoklassniki login, yandex login, odnoklassniki, yandex, odnoklassniki login button, yandex login button, Rutube, Rutube share, Rutube sharing, youtube login, x, x login, x share, yelp, tiktok, threads, Google Maps, Google Translate, RSS Feed, line, mastodon, mastodon share
 Requires at least: 2.5.0
-Tested up to: 6.6.2
-Stable tag: 7.14
+Tested up to: 6.7.2
+Stable tag: 7.14.2
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -214,6 +214,14 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.14.2 [19 February 2025] =
+* [Bugfix] user_register action was being triggered twice when using social login
+
+= 7.14.1 [20 January 2024] =
+* [Security] Fixed a Limited SQL Injection vulnerability
+* [New] Added an option Use Email address as Username in the Advanced Configuration section to use email addresses as the usernames for the new users registering via social login
+* [Bugfix] Email address to set the password was not being sent to the new users registering via social login when WooCommerce was active
+
 = 7.14 [3 November 2024] =
 * [Security] Plugin now checks if Vkontakte account is verified before saving the email if someone uses Vkontakte login
 * [Security] There is no way to check if the Spotify account used for Spotify login is verified so plugin will not fetch email along with other Spotify profile data
@@ -2865,3 +2873,11 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Security] Plugin now checks if Vkontakte account is verified before saving the email if someone uses Vkontakte login
 * [Security] There is no way to check if the Spotify account used for Spotify login is verified so plugin will not fetch email along with other Spotify profile data
 * [Improvement] Minor improvements
+
+= 7.14.1 [20 January 2024] =
+* [Security] Fixed a Limited SQL Injection vulnerability
+* [New] Added an option Use Email address as Username in the Advanced Configuration section to use email addresses as the usernames for the new users registering via social login
+* [Bugfix] Email address to set the password was not being sent to the new users registering via social login when WooCommerce was active
+
+= 7.14.2 [19 February 2025] =
+* [Bugfix] user_register action was being triggered twice when using social login

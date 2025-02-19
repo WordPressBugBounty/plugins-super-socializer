@@ -233,7 +233,9 @@ function the_champ_create_username($profileData){
 	$username = "";
 	$firstName = "";
 	$lastName = "";
-	if(isset($theChampLoginOptions['email_username']) && isset($profileData['email']) && $profileData['email'] != ''){
+	if(isset($theChampLoginOptions['username_email']) && isset($profileData['email']) && $profileData['email'] != ''){
+		$username = $profileData['email'];
+	}elseif(isset($theChampLoginOptions['email_username']) && isset($profileData['email']) && $profileData['email'] != ''){
 		$tempUsername = explode('@', $profileData['email']);
 		$username = $tempUsername[0];
 	}elseif(!empty($profileData['username'])){
@@ -386,7 +388,6 @@ function the_champ_create_user($profileData, $verification = false){
 
 		// hook - user successfully created
 		do_action('the_champ_user_successfully_created', $userId, $userdata, $profileData);
-		do_action('user_register', $userId, $userdata);
 
 		// double opt-in
 		if(isset($theChampLoginOptions['double_optin'])){
@@ -1278,10 +1279,8 @@ function heateor_ss_new_user_notification($userId){
 		if(class_exists('WC_Emails') && $notificationType == 'both'){
 			$wc_emails = WC_Emails::instance();
 			$wc_emails->customer_new_account($userId);
-			wp_new_user_notification($userId, null, 'admin');
-		}else{
-			wp_new_user_notification($userId, null, $notificationType);
 		}
+		wp_new_user_notification($userId, null, $notificationType);
 	}
 }
 

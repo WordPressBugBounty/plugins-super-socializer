@@ -32,7 +32,11 @@ jQuery(document).ready(function() {
             jQuery(this).is(":checked") ? jQuery("#the_champ_" + jQuery(this).val() + "_options").css("display", "table-row-group") : jQuery("#the_champ_" + jQuery(this).val() + "_options").css("display", "none")
         }
     }),
-    jQuery("#the_champ_gdpr_enable").click(function() {
+    jQuery("#the_champ_sl_email_username").click(function() {
+        if(jQuery(this).is(":checked")){jQuery("#the_champ_sl_username_email").prop('checked', false)}
+    }),jQuery("#the_champ_sl_username_email").click(function() {
+        if(jQuery(this).is(":checked")){jQuery("#the_champ_sl_email_username").prop('checked', false)}
+    }),jQuery("#the_champ_gdpr_enable").click(function() {
         jQuery(this).is(":checked") ? jQuery("#the_champ_gdpr_options").css("display", "table-row-group") : jQuery("#the_champ_gdpr_options").css("display", "none")
     }), jQuery("#the_champ_login_redirection_column").find("input[type=radio]").click(function() {
         jQuery(this).attr("id") && "the_champ_login_redirection_custom" == jQuery(this).attr("id") ? jQuery("#the_champ_login_redirection_url").css("display", "block") : jQuery("#the_champ_login_redirection_url").css("display", "none")
