@@ -204,7 +204,7 @@ function the_champ_login_user($userId, $profileData = array(), $socialId = '', $
 	do_action('the_champ_login_user', $userId, $profileData, $socialId, $update);
 	
 	// register Buddypress activity
-	if($theChampIsBpActive){
+	if($theChampIsBpActive && function_exists('bp_activity_add')){
 		$activityId = bp_activity_add(array(
 			'id' => '',
 			'action' => $user->user_login . ' used social login',

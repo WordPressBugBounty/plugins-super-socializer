@@ -1076,7 +1076,6 @@ class TheChampFollowWidget extends WP_Widget {
 		$instance['medium'] = $new_instance['medium'];
 		$instance['mewe'] = $new_instance['mewe'];
 		$instance['odnoklassniki'] = $new_instance['odnoklassniki'];
-		$instance['snapchat'] = $new_instance['snapchat'];
 		$instance['telegram'] = $new_instance['telegram'];
 		$instance['tumblr'] = $new_instance['tumblr'];
 		$instance['vimeo'] = $new_instance['vimeo'];
@@ -1256,9 +1255,6 @@ class TheChampFollowWidget extends WP_Widget {
 			<label for="<?php echo esc_attr($this->get_field_id('rss_feed')); ?>"><?php _e('RSS Feed URL:', 'super-socializer'); ?></label> 
 			<input style="width: 95%" class="widefat" id="<?php echo esc_attr($this->get_field_id('rss_feed')); ?>" name="<?php echo esc_attr($this->get_field_name('rss_feed')); ?>" type="text" value="<?php echo esc_attr(wp_strip_all_tags($instance['rss_feed'])); ?>" /><br/>
 			<span>http://www.example.com/feed/</span><br/><br/>
-			<label for="<?php echo esc_attr($this->get_field_id('snapchat')); ?>"><?php _e('Snapchat URL:', 'super-socializer'); ?></label> 
-			<input style="width: 95%" class="widefat" id="<?php echo esc_attr($this->get_field_id('snapchat')); ?>" name="<?php echo esc_attr($this->get_field_name('snapchat')); ?>" type="text" value="<?php echo esc_attr(wp_strip_all_tags($instance['snapchat'])); ?>" /><br/>
-			<span>https://www.snapchat.com/add/ID</span><br/><br/>
 			<label for="<?php echo esc_attr($this->get_field_id('telegram')); ?>"><?php _e('Telegram URL:', 'super-socializer'); ?></label> 
 			<input style="width: 95%" class="widefat" id="<?php echo esc_attr($this->get_field_id('telegram')); ?>" name="<?php echo esc_attr($this->get_field_name('telegram')); ?>" type="text" value="<?php echo esc_attr(wp_strip_all_tags($instance['telegram'])); ?>" /><br/>
 			<span>https://t.me/username</span><br/><br/>

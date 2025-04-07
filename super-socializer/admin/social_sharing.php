@@ -687,7 +687,6 @@
 							<td colspan="2">
 							<div>
 							<?php _e('Master control to enable standard sharing', 'super-socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_horizontal_sharing.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>
@@ -1106,7 +1105,6 @@
 							<td colspan="2">
 							<div>
 							<?php _e('If enabled, share counts are displayed above sharing icons.', 'super-socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_share_count.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>
@@ -1130,7 +1128,6 @@
 							<td colspan="2">
 							<div>
 							<?php _e('If enabled, total shares will be displayed with sharing icons', 'super-socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_horizontal_total_shares.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>
@@ -1183,7 +1180,6 @@
 							<td colspan="2">
 							<div>
 							<?php _e('Master control to enable floating sharing widget', 'super-socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_vertical_sharing.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>
@@ -1589,7 +1585,6 @@
 							<td colspan="2">
 							<div>
 							<?php _e('If enabled, share counts are displayed above sharing icons.', 'super-socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_vertical_sharing_count.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>
@@ -1613,7 +1608,6 @@
 							<td colspan="2">
 							<div>
 							<?php _e('If enabled, total shares will be displayed with sharing icons', 'super-socializer') ?>
-							<img width="550" src="<?php echo plugins_url('../images/snaps/ss_vertical_total_shares.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>
@@ -1682,7 +1676,6 @@
 							<td colspan="2">
 							<div>
 							<?php _e('Stick vertical floating interface horizontally at bottom only when screen is narrower than the width specified', 'super-socializer') ?>
-							<img src="<?php echo plugins_url('../images/snaps/ss_mobile_sharing.png', __FILE__); ?>" />
 							</div>
 							</td>
 						</tr>

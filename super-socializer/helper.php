@@ -555,6 +555,10 @@ function the_champ_account_linking(){
 			$html = '<script>function theChampLoadEvent(e){var t=window.onload;if(typeof window.onload!="function"){window.onload=e}else{window.onload=function(){t();e()}}} var theChampCloseIconPath="'. plugins_url('images/close.png', __FILE__) .'";</script>';
 			// general (required) scripts
 			wp_enqueue_script('the_champ_ss_general_scripts', plugins_url('js/front/social_login/general.js', __FILE__), false, THE_CHAMP_SS_VERSION);
+			if(heateor_ss_is_plugin_active("heateor-social-login-buttons/heateor-social-login-buttons.php")){
+				global $heateor_slb_options;
+				wp_enqueue_style( 'heateor_slb_frontend_css', plugins_url() .'/heateor-social-login-buttons/css/' . 'theme' . $heateor_slb_options['theme'] . '.css', false, HEATEOR_SOCIAL_LOGIN_BUTTONS_VERSION );
+			}
 			$websiteUrl = esc_url(home_url());
 			$html .= '<script>var theChampLinkingRedirection="'. the_champ_get_http().$_SERVER["HTTP_HOST"].remove_query_arg(array('linked')). '",theChampSameTabLogin=' . ( isset( $theChampLoginOptions["same_tab_login"] ) ? 1 : 0 ) . ';var theChampSiteUrl="'. $websiteUrl .'";var theChampVerified = 0;var theChampAjaxUrl="' .admin_url(). 'admin-ajax.php"; var theChampPopupTitle = ""; var theChampEmailPopup = 0; var theChampEmailAjaxUrl = "'. admin_url() .'/admin-ajax.php"; var theChampEmailPopupTitle = ""; var theChampEmailPopupErrorMsg = ""; var theChampEmailPopupUniqueId = ""; var theChampEmailPopupVerifyMessage = ""; var theChampCurrentPageUrl = "'. $twitterRedirect .'";</script>';
 			// scripts used for common Social Login functionality
@@ -615,32 +619,85 @@ function the_champ_account_linking(){
 							if(count($existingProviders) > 0){
 	                        $html .= '<tr>
 	                            <td colspan="2"><strong>'.$theChampLoginOptions['scl_title'].'</strong><br/>';
-								foreach($existingProviders as $provider){
-									$icons_container .= '<li><i ';
-									// id
-									if($provider == 'google'){
-										$icons_container .= 'id="theChamp'. ucfirst($provider).'Button" ';
+	                             if(heateor_ss_is_plugin_active("heateor-social-login-buttons/heateor-social-login-buttons.php")){
+	                            	global $heateor_slb_options;
+									if ( $heateor_slb_options['theme'] != '2' ) {
+		                            	foreach($existingProviders as $provider){
+											$icons_container .= '<li><div class="theChampLoginButtonBackground theChamp' . ucfirst( $provider ) . 'LoginBackground" data-network="' . $provider . '" onclick="theChampInitiateLogin(this, \'' . $provider . '\')" alt="Login with ' . ucfirst( $provider ) . '"><i ';
+											// id
+											if ( $provider == 'google' ) {
+												$icons_container .= 'id="theChamp' . ucfirst( $provider ) . 'Button" ';
+											}
+											// class
+											$icons_container .= 'class="theChampLogin theChamp' . ucfirst( $provider ) . 'Background theChamp' . ucfirst( $provider ) . 'Login" ';
+											$icons_container .= 'alt="Login with ';
+											$icons_container .= ucfirst( $provider );
+											$icons_container .= '" data-network="' . $provider . '" title="' . $heateor_slb_options['icon_text'] . ' ';
+											if ( $provider == 'live' ) {
+												$icons_container .= 'Windows Live';
+											} else {
+												$icons_container .= ucfirst( $provider );
+											}
+											if ( current_filter() == 'comment_form_top' || current_filter() == 'comment_form_must_log_in_after' ) {
+												$icons_container .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this, \'' . $provider . '\')" >';
+											} else {
+												$icons_container .= '" onclick="theChampInitiateLogin(this, \'' . $provider . '\')" >';
+											}
+											$icons_container .= '<ss style="display:block" class="theChampLoginSvg theChamp' . ucfirst( $provider ) . 'LoginSvg"></ss></i><div class="theChampLoginButtonText">' . $heateor_slb_options['icon_text'] . ' <div class="theChampLoginProvider">' . ucfirst( $provider ) . '</div></div></li>';
+										}
+									} else {
+										foreach($existingProviders as $provider){
+											$icons_container .= '<li class="theChamp' . ucfirst( $provider ) . 'Li"  data-network="' . $provider . '" alt="Login with ' . ucfirst( $provider ) . '" onclick="theChampInitiateLogin(this, \'' . $provider . '\')"><i ';
+											// id
+											if ( $provider == 'google' ) {
+												$icons_container .= 'id="theChamp' . ucfirst( $provider ) . 'Button" ';
+											}
+											// class
+											$icons_container .= 'class="theChampLogin theChamp' . ucfirst( $provider ) . 'Background theChamp' . ucfirst( $provider ) . 'Login" ';
+											$icons_container .= 'alt="Login with ';
+											$icons_container .= ucfirst( $provider );
+											$icons_container .= '" data-network="' . $provider . '" title="' . $heateor_slb_options['icon_text'] . ' ';
+											if ( $provider == 'live' ) {
+												$icons_container .= 'Windows Live';
+											} else {
+												$icons_container .= ucfirst( $provider );
+											}
+											if ( current_filter() == 'comment_form_top' || current_filter() == 'comment_form_must_log_in_after' ) {
+												$icons_container .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this, \'' . $provider . '\')" >';
+											} else {
+												$icons_container .= '" onclick="theChampInitiateLogin(this, \'' . $provider . '\')" >';
+											}
+											$icons_container .= '<ss style="display:block" class="theChampLoginSvg theChamp' . ucfirst( $provider ) . 'LoginSvg"></ss></i></li>';
+										}
 									}
-									// class
-									$icons_container .= 'class="theChampLogin theChamp'. ucfirst($provider).'Background theChamp'. ucfirst($provider).'Login" ';
-									$icons_container .= 'alt="'.__('Login with', 'super-socializer').' ';
-									$icons_container .= ucfirst($provider);
-									$icons_container .= '" title="'.__('Login with', 'super-socializer').' ';
-									$icons_container .= ucfirst($provider);
-									if(current_filter() == 'comment_form_top'){
-										$icons_container .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this, \''. $provider .'\')" >';
-									}else{
-										$icons_container .= '" onclick="theChampInitiateLogin(this, \''. $provider .'\')" >';
+	                            } else {
+	                            	foreach($existingProviders as $provider){
+										$icons_container .= '<li><i ';
+										// id
+										if($provider == 'google'){
+											$icons_container .= 'id="theChamp'. ucfirst($provider).'Button" ';
+										}
+										// class
+										$icons_container .= 'class="theChampLogin theChamp'. ucfirst($provider).'Background theChamp'. ucfirst($provider).'Login" ';
+										$icons_container .= 'alt="'.__('Login with', 'super-socializer').' ';
+										$icons_container .= ucfirst($provider);
+										$icons_container .= '" title="'.__('Login with', 'super-socializer').' ';
+										$icons_container .= ucfirst($provider);
+										if(current_filter() == 'comment_form_top'){
+											$icons_container .= '" onclick="theChampCommentFormLogin = true; theChampInitiateLogin(this, \''. $provider .'\')" >';
+										}else{
+											$icons_container .= '" onclick="theChampInitiateLogin(this, \''. $provider .'\')" >';
+										}
+										if($provider == 'facebook'){
+											$icons_container .= '<div class="theChampFacebookLogoContainer">';
+										}
+										$icons_container .= '<div class="theChampLoginSvg theChamp'. ucfirst($provider). 'LoginSvg"></div>';
+										if($provider == 'facebook'){
+											$icons_container .= '</div>';
+										}
+										$icons_container .= '</i></li>';
 									}
-									if($provider == 'facebook'){
-										$icons_container .= '<div class="theChampFacebookLogoContainer">';
-									}
-									$icons_container .= '<div class="theChampLoginSvg theChamp'. ucfirst($provider). 'LoginSvg"></div>';
-									if($provider == 'facebook'){
-										$icons_container .= '</div>';
-									}
-									$icons_container .= '</i></li>';
-								}
+	                            }
 								$icons_container .= '</ul>';
 								if(isset($theChampLoginOptions['gdpr_enable']) && $theChampLoginOptions['gdpr_placement'] == 'below'){
 									$icons_container .= '<div style="clear:both"></div>';
@@ -1175,3 +1232,21 @@ function the_champ_is_amp_page(){
 	}
 	return false;
 }
+
+/**
+ * Make Mastodon share work in AMP
+ *
+ * @since    7.14.3
+ */
+function heateor_ss_mastodon_share_amp() {
+
+	if ( isset( $_GET['heateor_mastodon_share'] ) && trim( $_GET['heateor_mastodon_share'] ) ) {
+		?>
+		<style type="text/css">#the_champ_sharing_more_providers{position:fixed;top:50%;left:47%;background:#fafafa;width:650px;margin:-180px 0 0 -300px;z-index:10000000;text-shadow:none!important;height:308px}#the_champ_mastodon_popup_bg,#the_champ_popup_bg{background:url(<?php echo plugins_url( './images/transparent_bg.png', __FILE__ ) ?>);bottom:0;display:block;left:0;position:fixed;right:0;top:0;z-index:10000}#the_champ_sharing_more_providers .title{font-size:14px!important;height:auto!important;background:#58b8f8!important;border-bottom:1px solid #d7d7d7!important;color:#fff;font-weight:700;letter-spacing:inherit;line-height:34px!important;padding:0!important;text-align:center;text-transform:none;margin:0!important;text-shadow:none!important;width:100%}#the_champ_sharing_more_providers *{font-family:Arial,Helvetica,sans-serif}#the_champ_sharing_more_providers #the_champ_sharing_more_content{background:#fafafa;border-radius:4px;color:#555;height:auto;width:100%}#the_champ_sharing_more_providers .filter{margin:0;padding:10px 0 0;position:relative;width:100%}#the_champ_sharing_more_providers .all-services{clear:both;height:250px;overflow:auto}#the_champ_sharing_more_content .all-services ul{margin:10px!important;overflow:hidden;list-style:none;padding-left:0!important;position:static!important;width:auto!important}#the_champ_sharing_more_content .all-services ul li{margin:0;background:0 0!important;float:left;width:33.3333%!important;text-align:left!important}#the_champ_sharing_more_providers .close-button img{margin:0}#the_champ_sharing_more_providers .close-button.separated{background:0 0!important;border:none!important;box-shadow:none!important;width:auto!important;height:auto!important;z-index:1000}#the_champ_sharing_more_providers .close-button{height:auto!important;width:auto!important;left:auto!important;display:block!important;color:#555!important;cursor:pointer!important;font-size:29px!important;line-height:29px!important;margin:0!important;padding:0!important;position:absolute;right:-13px;top:-11px}#the_champ_sharing_more_providers .filter input.search{width:94%;display:block;float:none;font-family:"open sans","helvetica neue",helvetica,arial,sans-serif;font-weight:300;height:auto;line-height:inherit;margin:0 auto;padding:5px 8px 5px 10px;border:1px solid #ccc!important;color:#000;background:#fff!important;font-size:16px!important;text-align:left!important}#the_champ_sharing_more_providers .footer-panel{background:#fff;border-top:1px solid #d7d7d7;padding:6px 0;width:100%;color:#fff}#the_champ_sharing_more_providers .footer-panel p{background-color:transparent;top:0;text-align:left!important;color:#000;font-family:'helvetica neue',arial,helvetica,sans-serif;font-size:12px;line-height:1.2;margin:0!important;padding:0 6px!important;text-indent:0!important}#the_champ_sharing_more_providers .footer-panel a{color:#fff;text-decoration:none;font-weight:700;text-indent:0!important}#the_champ_sharing_more_providers .all-services ul li a span{width:51%}#the_champ_sharing_more_providers .all-services ul li a{border-radius:3px;color:#666!important;display:block;font-size:18px;height:auto;line-height:28px;overflow:hidden;padding:8px;text-decoration:none!important;text-overflow:ellipsis;white-space:nowrap;border:none!important;text-indent:0!important;background:0 0!important;text-shadow:none}.the_champ_mastodon_popup_button{background:linear-gradient(#ec1b23,#d43116);padding:8px 0 10px;font-size:18px;border:0;color:#fff;border-radius:8px;margin:4px auto;font-weight:bolder;width:35%;cursor:pointer;border-bottom-style:groove;border-bottom-width:5px;border-bottom-color: rgb(0,0,0,.2)}@media screen and (max-width:783px){#the_champ_sharing_more_providers{width:80%;left:60%;margin-left:-50%;text-shadow:none!important}#the_champ_sharing_more_providers .filter input.search{border:1px solid #ccc;width:92%}}</style>
+		<div id="the_champ_sharing_more_providers" style="height: auto;"><button id="the_champ_mastodon_popup_close" class="close-button separated"><img src="<?php echo plugins_url( './images/close.png', __FILE__ ) ?>"></button><div id="the_champ_sharing_more_content"><div class="all-services" style="height:auto"><div class="filter"><center><?php _e( 'Your Mastodon Instance', 'super-socializer' ); ?></center><input type="text" id="the_champ_mastodon_instance" placeholder="https://mastodon.social" class="search"><center><input type="button" class="the_champ_mastodon_popup_button" value="<?php _e( 'Submit', 'super-socializer' ); ?>" onclick="var heateorMastodonInstance = document.getElementById('the_champ_mastodon_instance').value.trim(), heateorMastodonAnchor = '<?php echo strpos( urldecode( $_GET['heateor_mastodon_share'] ), 'mastodon.social/share?text=' ) > 0 ? esc_url( urldecode( trim( $_GET['heateor_mastodon_share'] ) ) ) : '' ?>'; heateorMastShareURL = heateorMastodonInstance ? heateorMastodonAnchor.replace('https://mastodon.social', heateorMastodonInstance) : heateorMastodonAnchor;location.href = heateorMastShareURL;"></center></div></div><div class="footer-panel"></div></div></div><div id="the_champ_mastodon_popup_bg"></div>
+		<?php
+		exit();
+	}
+
+}
+add_filter('parse_request', 'heateor_ss_mastodon_share_amp');

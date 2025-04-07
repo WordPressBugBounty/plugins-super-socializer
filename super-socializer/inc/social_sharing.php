@@ -1018,13 +1018,6 @@ function the_champ_sharing_count(){
 			$shareCountTransient = array();
 			foreach($sharingNetworks as $provider){
 				switch($provider){
-					case 'facebook':
-						$url = '';
-						$fbAccessToken = heateor_ss_fetch_fb_access_token();
-						if($fbAccessToken){
-							$url = "https://graph.facebook.com/?access_token=". $fbAccessToken ."&fields=engagement&id=". $targetUrl;
-						}
-						break;
 					case 'twitter':
 						$url = "https://counts.twitcount.com/counts.php?url=". $targetUrl;
 						break;
@@ -1064,13 +1057,6 @@ function the_champ_sharing_count(){
 						$body = json_decode($body);
 					}
 					switch($provider){
-						case 'facebook':
-							if(!empty($body->engagement) && isset($body->engagement->share_count)){
-								$shareCountTransient['facebook'] = (isset($body->engagement->reaction_count) ? $body->engagement->reaction_count : 0) + (isset($body->engagement->comment_count) ? $body->engagement->comment_count : 0) + $body->engagement->share_count;
-							}else{
-								$shareCountTransient['facebook'] = 0;
-							}
-							break;
 						case 'twitter':
 							if(!empty($body->count)){
 								$shareCountTransient['twitter'] = $body->count;
