@@ -3,8 +3,8 @@ Contributors: Heateor, kamirkhan, mohammadfarhankhan, the_champ
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
 Tags: social login, social share, facebook comments, single sign-on, social media, facebook login, twitter login, linkedin login, google login, vkontakte login, Windows Live Login, Microsoft Login, Wordpress login, Yahoo login, Spotify login, Dribbble login, Kakao login, Github login, Twitch login, Instagram login, dropbox login, foursquare login, disqus login, reddit login, amazon login, stackoverflow login, stack overflow login, discord login, mail.ru login, mailru login, mail ru login, gettr share, parler share, odnoklassniki login, yandex login, odnoklassniki, yandex, odnoklassniki login button, yandex login button, Rutube, Rutube share, Rutube sharing, youtube login, x, x login, x share, yelp, tiktok, threads, Google Maps, Google Translate, RSS Feed, line, mastodon, mastodon share
 Requires at least: 2.5.0
-Tested up to: 6.7.2
-Stable tag: 7.14.3
+Tested up to: 6.8.2
+Stable tag: 7.14.4
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -214,6 +214,10 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.14.4 [2 August 2025] =
+* [Improvement] Removed Webnews from the supported social share networks
+* [Improvement] Updated the official Facebook SDK being used throughout the plugin to the version 23.0
+
 = 7.14.3 [7 April 2025] =
 * [Bugfix] Mastodon share was not prompting to specify the Mastodon instance when used in AMP
 * [Improvement] Themes of <a target="_blank" href="https://www.heateor.com/social-login-buttons/">Social Login Buttons</a> add-on were not being applied to the social linking icons
@@ -2895,3 +2899,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Improvement] Updated the official Facebook SDK being used throughout the plugin to the version 22.0
 * [Improvement] Admin UI improvements
 * [Improvement] CSS improvements
+
+= 7.14.4 [2 August 2025] =
+* [Improvement] Removed Webnews from the supported social share networks
+* [Improvement] Updated the official Facebook SDK being used throughout the plugin to the version 23.0
