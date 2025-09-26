@@ -644,7 +644,7 @@ function the_champ_sanitize_profile_data($profileData, $provider){
 		}
 	}elseif($provider == 'vkontakte'){
 		$temp['id'] = isset($profileData['id']) ? sanitize_text_field($profileData['id']) : '';
-		$temp['email'] = '';
+		$temp['email'] = $profileData['email'] ? sanitize_email($profileData['email']) : '';
 		if(isset($profileData['verified']) && $profileData['verified'] == 1 && isset($profileData['email']) && $profileData['email'] != ''){
 	    	$temp['email'] = sanitize_email($profileData['email']);
 	    }

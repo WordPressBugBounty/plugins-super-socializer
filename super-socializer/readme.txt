@@ -1,10 +1,10 @@
 ﻿=== Social Share, Social Login and Social Comments Plugin - Super Socializer ===
 Contributors: Heateor, kamirkhan, mohammadfarhankhan, the_champ
 Donate link: https://www.heateor.com/donate?action=Super+Socializer
-Tags: social login, social share, facebook comments, single sign-on, social media, facebook login, twitter login, linkedin login, google login, vkontakte login, Windows Live Login, Microsoft Login, Wordpress login, Yahoo login, Spotify login, Dribbble login, Kakao login, Github login, Twitch login, Instagram login, dropbox login, foursquare login, disqus login, reddit login, amazon login, stackoverflow login, stack overflow login, discord login, mail.ru login, mailru login, mail ru login, gettr share, parler share, odnoklassniki login, yandex login, odnoklassniki, yandex, odnoklassniki login button, yandex login button, Rutube, Rutube share, Rutube sharing, youtube login, x, x login, x share, yelp, tiktok, threads, Google Maps, Google Translate, RSS Feed, line, mastodon, mastodon share
+Tags: social login, social share, facebook comments, ChatGPT, Grok, social media, facebook login, twitter login, linkedin login, google login, vkontakte login, Windows Live Login, Microsoft Login, Wordpress login, Yahoo login, Spotify login, Dribbble login, Kakao login, Github login, Twitch login, Instagram login, dropbox login, foursquare login, disqus login, reddit login, amazon login, stackoverflow login, stack overflow login, discord login, mail.ru login, mailru login, mail ru login, gettr share, parler share, odnoklassniki login, yandex login, odnoklassniki, yandex, odnoklassniki login button, yandex login button, Rutube, Rutube share, Rutube sharing, youtube login, x, x login, x share, yelp, tiktok, threads, Google Maps, Google Translate, RSS Feed, line, mastodon, mastodon share
 Requires at least: 2.5.0
 Tested up to: 6.8.2
-Stable tag: 7.14.4
+Stable tag: 7.14.5
 License: GPLv2 or later
 
 The unique Social Plugin to let you integrate Social Login, Social Share, Social Comments and Social Media follow at your website
@@ -23,8 +23,9 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 * Compatible with PHP 8
 * GDPR Compliant
 * Compatible with Gutenberg editor
-* Compatible with myCRED (append myCRED referral ID at the end of the url being shared)
+* Compatible with myCRED (append myCRED referral ID at the end of the URL being shared)
 * Social Share from around 100 social networks
+* Summarize content over popular AI platforms like ChatGPT, Grok, Google AI, Claude, Perplexity
 * Social Media follow icons 
 * Share counts are supported for Twitter, Buffer, Reddit, Pinterest, Odnoklassniki, Fintel and Vkontakte
 * FREE icon customization options
@@ -33,9 +34,9 @@ Integrate Social Login, Social Share and Social Comments at your website easiest
 * Options to specify sharing icon backround color and logo color
 * Sharing counter customization options
 * Enable share count cache with option to control cache refresh time-frame
-* Enable url shortening to use in sharing
+* Enable URL shortening to use in sharing
 * Horizontal and Vertical (floating) layout for sharing
-* Customizable target url for sharing
+* Customizable target URL for sharing
 * Rearrange order of sharing icons
 * Specify position of sharing icons with respect to content - Top and Bottom
 * Enable/Disable sharing on default/custom post types
@@ -214,6 +215,13 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 8. **Social Commenting**: Disqus Commenting selected
 
 == Changelog ==
+= 7.14.5 [26 September 2025] =
+* [New] Added new Social Share Networks - ChatGPT, Grok, Perplexity, Google AI, Claude 
+* [Improvement] Updated the Facebook API being used throughout the plugin to the latest version 23.0
+* [Improvement] Improvements in Vkontakte login
+* [Improvement] Vkontakte login was not fetching the email address along with other profile data of the user
+* [Improvement] Updated the Vkontakte oauth API being used to the latest version 5.199
+
 = 7.14.4 [2 August 2025] =
 * [Improvement] Removed Webnews from the supported social share networks
 * [Improvement] Updated the official Facebook SDK being used throughout the plugin to the version 23.0
@@ -633,7 +641,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.45 [10 July 2020] =
 [Bugfix] Instagram login stopped working because of the outdated Instagram API
-[Bugfix] Bit.ly url shortener was not working because of the outdated Bit.ly API
+[Bugfix] Bit.ly URL shortener was not working because of the outdated Bit.ly API
 [Bugfix] Social Login shortcode was causing Javascript error for logged in users
 
 = 7.12.44 [27 June 2020] =
@@ -680,7 +688,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Improvement] Updated Facebook API to version 3.2 from version 2.10
 
 = 7.12.36 [16 December 2019] =
-* [Bugfix] Querystring Parameters in the url of webpage were resetting the Facebook Like and Facebook Recommend counts to zero
+* [Bugfix] Querystring Parameters in the URL of webpage were resetting the Facebook Like and Facebook Recommend counts to zero
 * [Bugfix] Admin was not receiving new user notification email with Woocommerce active
 
 = 7.12.35 [25 November 2019] =
@@ -720,7 +728,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.28 [25 June 2019] =
 * [New] Option to trigger social login popup in the same browser tab instead of a popup window
-* [Bugfix] Webpage urls with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
+* [Bugfix] Webpage URLs with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
 
 = 7.12.27 [5 June 2019] =
 * [Bugfix] Minor bugfixing
@@ -753,7 +761,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.19 =
 * [Bugfix] Tumblr share stopped working
-* [Bugfix] Querystring parameter in the url was causing changes in the share counts for the webpage
+* [Bugfix] Querystring parameter in the URL was causing changes in the share counts for the webpage
 * [Improvement] Updated Facebook login logo according to Facebook branding guidelines
 * [Improvement] Line share now works with the devices that doesn't support Line app
 * [Improvement] Removed Google+ from social share and social media follow icons
@@ -866,7 +874,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Browser console was showing "<fb:comments-count> has been deprecated" error with Facebook Comments enabled
 * [Bugfix] Enabling the horizontal sticky floating share bar was causing a white bar to appear at the bottom of webpages in mobile devices where floating bar was not enabled
 * [Improvement] Facebook Comments were being rendered in English instead of the language of WordPress installation when no language was specified for the Facebook Comments
-* [Improvement] Notification to save privacy policy url was appearing in the admin area even with GDPR opt-in disabled
+* [Improvement] Notification to save privacy policy URL was appearing in the admin area even with GDPR opt-in disabled
 * [Improvement] Upgraded Facebook PHP SDK to make it compatible with PHP version 7.1 and above
 * [Improvement] Meta options for individual posts/pages were also appearing for non-admin users
 * [Improvement] Options to control social avatar were appearing at user profile page even when social avatar was disabled
@@ -917,7 +925,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.11.8 =
 * [Bugfix] Google login stopped working due to some changes in Google OAuth process
 * [Bugfix] Facebook login window was needed to be streched to see the content inside, in a few cases
-* [Bugfix] Short url option was not working for Copy Link icon
+* [Bugfix] Short URL option was not working for Copy Link icon
 
 = 7.11.7 =
 * [Bugfix] Redirection to same page was not working for Facebook and Vkontakte social login
@@ -941,7 +949,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.11.3 =
 * [Bugfix] Fixed PHP errors being generated at the websites running on PHP version < 5.4
-* Websites having directory appended to the domain as homepage url need to update the "Authorized redirect URIs" in Google client settings. Notification is being displayed in the admin for the same.
+* Websites having directory appended to the domain as homepage URL need to update the "Authorized redirect URIs" in Google client settings. Notification is being displayed in the admin for the same.
 
 = 7.11.2 =
 * [Bugfix] "Redirect to same page" option was not working for Google+ and Linkedin
@@ -1012,7 +1020,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Improvement] Google Plus share counts are no longer supported, as the official API no longer serves the share count
 
 = 7.9.3 =
-* [Bugfix] Social avatar url was broken when using LiveJournal login
+* [Bugfix] Social avatar URL was broken when using LiveJournal login
 * [Improvement] Social Share dialogue was being opened in new tab instead of the popup window, in the latest version of Google Chrome browser
 * [Improvement] 3rd party library "Simple OpenID PHP Class" being used for LiveJournal Login was generating PHP warnings with PHP7
 
@@ -1027,7 +1035,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [New] Included Copy Link, Diaspora, Douban, Draugiem, Facebook Messenger, Google Classroom, Kik, Papaly, Polyvore, Refind, Skype, SMS, Trello, Viber, StockTwits and Telegram in sharing networks
 * [New] Added "Comment" icon in sharing networks to send users to comment form at the webpage
 * [New] Added search box above the social networks at options page in admin, to find the desired social networks easily
-* [New] Added option to append myCRED referral ID to the urls being shared
+* [New] Added option to append myCRED referral ID to the URLs being shared
 * [Improvement] Delicious share/bookmark counts are no longer supported, as Delicious bookmark count API is dead
 * [Improvement] Improved social share icons
 * [Bugfix] Twitter share count was not working in some cases
@@ -1035,7 +1043,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Share icons were not appearing at the webpages built using <a href="https://wordpress.org/plugins/elementor/">Elementor</a> plugin
 
 = 7.8.24 =
-* [Improvement] Webpage urls with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
+* [Improvement] Webpage URLs with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
 
 = 7.8.23 =
 * [Improvement] Performance improvement for the mobile responsiveness feature added in previous version
@@ -1052,7 +1060,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.8.20 =
 * [Improvement] Compatible with version 1.1.4 of <a href="https://www.heateor.com/facebook-comments-notifier/" target="_blank">Facebook Comments Notifier</a> add-on
-* [Bugfix] Request url to Facebook SDK was broken in some cases when "Load all Javascript files in single file" option was enabled
+* [Bugfix] Request URL to Facebook SDK was broken in some cases when "Load all Javascript files in single file" option was enabled
 * [Bugfix] Single and double quotes in Social Commenting title were appearing encoded at the webpage
 
 = 7.8.19 =
@@ -1077,7 +1085,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [New] Included LiveJournal in Social Login networks 
 * [New] Added option to control automatic social account linking (if email address of social media account matches with existing email address)
 * [Bugfix] Twitter login of Ultimate Member - Social Login extension was not working with Super Socializer active
-* [Bugfix] Floating sharing icons and floating like buttons were not picking up correct title and url at archive pages
+* [Bugfix] Floating sharing icons and floating like buttons were not picking up correct title and URL at archive pages
 * [Bugfix] BuddyPress XProfile fields were being wiped out on Social Login, if social profile fields were not mapped to XProfile fields from plugin options
 * [Improvement] Now primary social account can be unlinked from Social Account Linking section at user profile page
 * [Improvement] "Login with" text appearing on hovering mouse over Social Login icons was not being translated
@@ -1089,7 +1097,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.8.12 =
 * [Bugfix] User's email was not being returned in Twitter profile data inspite of the Twitter app having appropriate permission
 * [Bugfix] Steam avatar link was broken at the webpages having SSL enabled (thanks @aleks93ts)
-* [Bugfix] Social Avatar url was being deleted from database on saving profile at profile page (in previous version only)
+* [Bugfix] Social Avatar URL was being deleted from database on saving profile at profile page (in previous version only)
 * [Bugfix] Twitch login was not working in some cases
 * [Bugfix] Some Social Share logos were not appearing on activating cache plugin, in a few cases
 * [Improvement] User will see a message if their browser is blocking any functionality of the plugin
@@ -1113,7 +1121,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.8.7 =
 * [Bugfix] Reddit share count was not appearing in some cases
-* [Bugfix] '&' in webpage url was appearing encoded in post-login redirection
+* [Bugfix] '&' in webpage URL was appearing encoded in post-login redirection
 * [Improvement] Removed deprecated '-moz-box-shadow' from the CSS
 
 = 7.8.6 =
@@ -1171,13 +1179,13 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.7.5 =
 * [Bugfix] Facebook share counts were not appearing in some cases
 * [Bugfix] Shares specified in "Starting share count" option for individual posts/pages were not appearing at homepage
-* [Bugfix] Querystring variables were not being appended to the url being shared
+* [Bugfix] Querystring variables were not being appended to the URL being shared
 * [Bugfix] Border radius was not reverting to default when kept blank in "Theme Selection" section at sharing options page in admin area
 * [Improvement] "Share" was being displayed in total share counts for 0 shares, instead of "Shares"
 * [Improvement] Admin UI improvement
 * [Improvement] "heateor_ss_custom_share_url" filter has been included in widgets and shortcode for sharing icons and like buttons
 * [New] Added option to enable/disable sharing on AMP pages
-* [New] Vkontakte profile url is now being saved in "Website" field of profile page
+* [New] Vkontakte profile URL is now being saved in "Website" field of profile page
 
 = 7.7.4 =
 * [Bugfix] Share counts suddenly stopped appearing because of deprecated Facebook share count API
@@ -1195,7 +1203,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Fixed PHP warnings being generated when Social Login widget was enabled
 
 = 7.7 =
-* [Bugfix] Plugin was not picking the homepage url correctly if it was different from the WordPress installation directory
+* [Bugfix] Plugin was not picking the homepage URL correctly if it was different from the WordPress installation directory
 * [Bugfix] Quality of social avatar displayed in Social Login widget was always average irrespective of the "Avatar quality" option
 * [Bugfix] Steam was not working in Social Account linking section
 * [Bugfix] Unnecessary permission was being asked in Twitch Login
@@ -1214,7 +1222,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] When total share count was 1, "Shares" was being displayed instead of "Share"
 * [Bugfix] "Shares/Share" text was not being translated
 * [Bugfix] Facebook icon was not appearing in "Social Account Linking" section
-* [Bugfix] Share and like buttons were not sharing url of homepage when enabled using shortcode
+* [Bugfix] Share and like buttons were not sharing URL of homepage when enabled using shortcode
 * [Bugfix] Widget options were not being deleted on plugin deletion
 * [Bugfix] Fixed PHP notices being generated on saving social avatar from profile page at front-end
 * [Bugfix] Single quote in blogname was apearing encoded in the subject of the email sent by the plugin
@@ -1251,7 +1259,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Sharing icons disappeared from post excerpts after updating to version 7.4.1, in a few cases
 
 = 7.4.1 =
-* [Bugfix] Url passed in Facebook sharer was not being encoded and querystring variables after '&' were not appearing in the url being shared
+* [Bugfix] Url passed in Facebook sharer was not being encoded and querystring variables after '&' were not appearing in the URL being shared
 * [Bugfix] Sharing icons were not appearing if posts page was a page other than homepage
 * [Bugfix] "failed to open stream" PHP warning was being generated in a few cases
 * [Bugfix] CSS of default login page was getting affected 
@@ -1277,7 +1285,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.1 =
 * [Bugfix] Plugin functionality was breaking in a few cases when "Load all Javascript files in single file" option was enabled 
-* [Improvement] Improved bit.ly short url cache resulting in reduced page load time
+* [Improvement] Improved bit.ly short URL cache resulting in reduced page load time
 * [Improvement] Specified "the_champ_sharing_title" class name for the div containing title of sharing interface
 * [Improvement] Removed German translation due to poor feedback
 * [New] Option to clear bit.ly shorturl cache
@@ -1294,7 +1302,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [New] Added option to specify custom CSS at "Super Socializer > General Options" page
 * [Bugfix] Social Login icons were appearing misaligned at WooCommerce Customer Login form
 * [Bugfix] Social Commenting was getting enabled on default pages and posts automatically, after updating the plugin to new version
-* [Bugfix] Vertical/Floating sharing bar/like buttons at homepage was sharing the url of first article at the page, instead of that of homepage
+* [Bugfix] Vertical/Floating sharing bar/like buttons at homepage was sharing the URL of first article at the page, instead of that of homepage
 * [Bugfix] User was not getting redirected to the same tab after saving changes, at plugin options page
 * [Improvement] Share counts are being rounded off instead of K+, M+ format
 * [Improvement] Admin UI improvement
@@ -1419,7 +1427,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Feature to slide in/out vertical sharing/counter interface
 * Option to use already enabled shortlinks with sharing
 * GooglePlus and Disqus included in Social Commenting
-* [Bugfix] Cached short urls were not being removed on deletion of plugin
+* [Bugfix] Cached short URLs were not being removed on deletion of plugin
 
 = 4.3.0 =
 * [Bugfix] Facebook Comments layout was distorted in mobile devices
@@ -1429,12 +1437,12 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 4.2.0 =
 * [Bugfix] Xing login was not working
 * [Bugfix] Google Login was not working with French translation
-* [Bugfix] Bit.ly service was being called on each page load. Now short urls are being cached.
+* [Bugfix] Bit.ly service was being called on each page load. Now short URLs are being cached.
 * [Bugfix] Names having cyrillic characters were not being displayed
 * [Bugfix] Could not FB comment using mobile, interface kept refreshing
 * [Bugfix] "fb-root" div was being included in the 'head' section of webpage
 * [Bugfix] FB Commenting was not working with Disqus commenting
-* [Bugfix] Bitly url shortener was not working in sharing shortcode
+* [Bugfix] Bitly URL shortener was not working in sharing shortcode
 * [Bugfix] Removed {} (empty brackets) from front.css file
 * [Bugfix] Commenting.js file was being loaded on the page where FB commenting was disabled
 * Included Whatsapp in sharing
@@ -1459,7 +1467,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Included Xing in Social Login
 * Included Xing in Social Sharing
 * Included Xing in Social Counter
-* Added option to specify target url in sharing and counter
+* Added option to specify target URL in sharing and counter
 * Added option to specify minimum share count in sharing interface for individual pages/posts
 * Users can link their social accounts at profile page
 * Added option to redirect users to BuddyPress profile page after login and registration
@@ -1477,7 +1485,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Included option to enable share counts in sharing shortcode and widget
 * Included French, Hungarian, German and Italian translation
 * Facebook Comments and default commenting works simultaneously without the need to toggle between them
-* [Bugfix] Share counts were not being displayed when bit.ly url shortner was enabled
+* [Bugfix] Share counts were not being displayed when bit.ly URL shortner was enabled
 
 = 3.4.2 =
 * Verified compatibility with WordPress 4.0
@@ -1495,7 +1503,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Added hook "do_action('the_champ_user_successfully_created', $userId, $userdata)" after user creation
 * Added hook "apply_filters('the_champ_bypass_sharing', $post, $content)" before rendering sharing interface
 * Added option to specify background color of the vertical sharing bar
-* Added option to use bit.ly url shortening sevice in sharing
+* Added option to use bit.ly URL shortening sevice in sharing
 * Added option to specify username in Twitter sharing
 * Bugfix: If used any other language than English in the FB comment title, undefined characters were being displayed at front end
 
@@ -1627,7 +1635,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Added hook "do_action('the_champ_user_successfully_created', $userId, $userdata)" after user creation
 * Added hook "apply_filters('the_champ_bypass_sharing', $post, $content)" before rendering sharing interface
 * Added option to specify background color of the vertical sharing bar
-* Added option to use bit.ly url shortening sevice in sharing
+* Added option to use bit.ly URL shortening sevice in sharing
 * Added option to specify username in Twitter sharing
 * Bugfix: If used any other language than English in the FB comment title, undefined characters were being displayed at front end
 
@@ -1643,7 +1651,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Included Xing in Social Login
 * Included Xing in Social Sharing
 * Included Xing in Social Counter
-* Added option to specify target url in sharing and counter
+* Added option to specify target URL in sharing and counter
 * Added option to specify minimum share count in sharing interface for individual pages/posts
 * Users can link their social accounts at profile page
 * Added option to redirect users to BuddyPress profile page after login and registration
@@ -1661,7 +1669,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Included option to enable share counts in sharing shortcode and widget
 * Included French, Hungarian, German and Italian translation
 * Facebook Comments and default commenting works simultaneously without the need to toggle between them
-* [Bugfix] Share counts were not being displayed when bit.ly url shortner was enabled
+* [Bugfix] Share counts were not being displayed when bit.ly URL shortner was enabled
 
 = 4.0.1 =
 * [Bugfix] Fixed issue with Xing Social Login
@@ -1673,12 +1681,12 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 4.2.0 =
 * [Bugfix] Xing login was not working
 * [Bugfix] Google Login was not working with French translation
-* [Bugfix] Bit.ly service was being called on each page load. Now short urls are being cached.
+* [Bugfix] Bit.ly service was being called on each page load. Now short URLs are being cached.
 * [Bugfix] Names having cyrillic characters were not being displayed
 * [Bugfix] Could not FB comment using mobile, interface kept refreshing
 * [Bugfix] "fb-root" div was being included in the 'head' section of webpage
 * [Bugfix] FB Commenting was not working with Disqus commenting
-* [Bugfix] Bitly url shortener was not working in sharing shortcode
+* [Bugfix] Bitly URL shortener was not working in sharing shortcode
 * [Bugfix] Removed {} (empty brackets) from front.css file
 * [Bugfix] Commenting.js file was being loaded on the page where FB commenting was disabled
 * Included Whatsapp in sharing
@@ -1706,7 +1714,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * Feature to slide in/out vertical sharing/counter interface
 * Option to use already enabled shortlinks with sharing
 * GooglePlus and Disqus included in Social Commenting
-* [Bugfix] Cached short urls were not being removed on deletion of plugin
+* [Bugfix] Cached short URLs were not being removed on deletion of plugin
 
 = 5.0.1 =
 * [Bugfix] Social Commenting was breaking layout of some themes
@@ -1827,7 +1835,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [New] Added option to specify custom CSS at "Super Socializer > General Options" page
 * [Bugfix] Social Login icons were appearing misaligned at WooCommerce Customer Login form
 * [Bugfix] Social Commenting was getting enabled on default pages and posts automatically, after updating the plugin to new version
-* [Bugfix] Vertical/Floating sharing bar/like buttons at homepage was sharing the url of first article at the page, instead of that of homepage
+* [Bugfix] Vertical/Floating sharing bar/like buttons at homepage was sharing the URL of first article at the page, instead of that of homepage
 * [Bugfix] User was not getting redirected to the same tab after saving changes, at plugin options page
 * [Improvement] Share counts are being rounded off instead of K+, M+ format
 * [Improvement] Admin UI improvement
@@ -1838,7 +1846,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.1 =
 * [Bugfix] Plugin functionality was breaking in a few cases when "Load all Javascript files in single file" option was enabled 
-* [Improvement] Improved bit.ly short url cache resulting in reduced page load time
+* [Improvement] Improved bit.ly short URL cache resulting in reduced page load time
 * [Improvement] Specified "the_champ_sharing_title" class name for the div containing title of sharing interface
 * [Improvement] Removed German translation due to poor feedback
 * [New] Option to clear bit.ly shorturl cache
@@ -1856,7 +1864,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Reddit badge was not appearing on webpages having ssl enabled
 
 = 7.4.1 =
-* [Bugfix] Url passed in Facebook sharer was not being encoded and querystring variables after '&' were not appearing in the url being shared
+* [Bugfix] Url passed in Facebook sharer was not being encoded and querystring variables after '&' were not appearing in the URL being shared
 * [Bugfix] Sharing icons were not appearing if posts page was a page other than homepage
 * [Bugfix] "failed to open stream" PHP warning was being generated in a few cases
 * [Bugfix] CSS of default login page was getting affected 
@@ -1902,7 +1910,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] When total share count was 1, "Shares" was being displayed instead of "Share"
 * [Bugfix] "Shares/Share" text was not being translated
 * [Bugfix] Facebook icon was not appearing in "Social Account Linking" section
-* [Bugfix] Share and like buttons were not sharing url of homepage when enabled using shortcode
+* [Bugfix] Share and like buttons were not sharing URL of homepage when enabled using shortcode
 * [Bugfix] Widget options were not being deleted on plugin deletion
 * [Bugfix] Fixed PHP notices being generated on saving social avatar from profile page at front-end
 * [Bugfix] Single quote in blogname was apearing encoded in the subject of the email sent by the plugin
@@ -1912,7 +1920,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Improvement] Changed background color of Linkedin icon to match its brand guidelines
 
 = 7.7 =
-* [Bugfix] Plugin was not picking the homepage url correctly if it was different from the WordPress installation directory
+* [Bugfix] Plugin was not picking the homepage URL correctly if it was different from the WordPress installation directory
 * [Bugfix] Quality of social avatar displayed in Social Login widget was always average irrespective of the "Avatar quality" option
 * [Bugfix] Steam was not working in Social Account linking section
 * [Bugfix] Unnecessary permission was being asked in Twitch Login
@@ -1942,13 +1950,13 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.7.5 =
 * [Bugfix] Facebook share counts were not appearing in some cases
 * [Bugfix] Shares specified in "Starting share count" option for individual posts/pages were not appearing at homepage
-* [Bugfix] Querystring variables were not being appended to the url being shared
+* [Bugfix] Querystring variables were not being appended to the URL being shared
 * [Bugfix] Border radius was not reverting to default when kept blank in "Theme Selection" section at sharing options page in admin area
 * [Improvement] "Share" was being displayed in total share counts for 0 shares, instead of "Shares"
 * [Improvement] Admin UI improvement
 * [Improvement] "heateor_ss_custom_share_url" filter has been included in widgets and shortcode for sharing icons and like buttons
 * [New] Added option to enable/disable sharing on AMP pages
-* [New] Vkontakte profile url is now being saved in "Website" field of profile page
+* [New] Vkontakte profile URL is now being saved in "Website" field of profile page
 
 = 7.7.6 =
 * [Bugfix] Facebook share counts were not appearing on websites with SSL enabled
@@ -2004,7 +2012,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.8.7 =
 * [Bugfix] Reddit share count was not appearing in some cases
-* [Bugfix] '&' in webpage url was appearing encoded in post-login redirection
+* [Bugfix] '&' in webpage URL was appearing encoded in post-login redirection
 * [Improvement] Removed deprecated '-moz-box-shadow' from the CSS
 
 = 7.8.8 =
@@ -2025,7 +2033,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.8.12 =
 * [Bugfix] User's email was not being returned in Twitter profile data inspite of the Twitter app having appropriate permission
 * [Bugfix] Steam avatar link was broken at the webpages having SSL enabled (thanks @aleks93ts)
-* [Bugfix] Social Avatar url was being deleted from database on saving profile at profile page (in previous version only)
+* [Bugfix] Social Avatar URL was being deleted from database on saving profile at profile page (in previous version only)
 * [Bugfix] Twitch login was not working in some cases
 * [Bugfix] Some Social Share logos were not appearing on activating cache plugin, in a few cases
 * [Improvement] User will see a message if their browser is blocking any functionality of the plugin
@@ -2040,7 +2048,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [New] Included LiveJournal in Social Login networks 
 * [New] Added option to control automatic social account linking (if email address of social media account matches with existing email address)
 * [Bugfix] Twitter login of Ultimate Member - Social Login extension was not working with Super Socializer active
-* [Bugfix] Floating sharing icons and floating like buttons were not picking up correct title and url at archive pages
+* [Bugfix] Floating sharing icons and floating like buttons were not picking up correct title and URL at archive pages
 * [Bugfix] BuddyPress XProfile fields were being wiped out on Social Login, if social profile fields were not mapped to XProfile fields from plugin options
 * [Improvement] Now primary social account can be unlinked from Social Account Linking section at user profile page
 * [Improvement] "Login with" text appearing on hovering mouse over Social Login icons was not being translated
@@ -2065,7 +2073,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.8.20 =
 * [Improvement] Compatible with version 1.1.4 of <a href="https://www.heateor.com/facebook-comments-notifier/" target="_blank">Facebook Comments Notifier</a> add-on
-* [Bugfix] Request url to Facebook SDK was broken in some cases when "Load all Javascript files in single file" option was enabled
+* [Bugfix] Request URL to Facebook SDK was broken in some cases when "Load all Javascript files in single file" option was enabled
 * [Bugfix] Single and double quotes in Social Commenting title were appearing encoded at the webpage
 
 = 7.8.21 =
@@ -2082,13 +2090,13 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Improvement] Performance improvement for the mobile responsiveness feature added in previous version
 
 = 7.8.24 =
-* [Improvement] Webpage urls with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
+* [Improvement] Webpage URLs with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
 
 = 7.9 =
 * [New] Included Copy Link, Diaspora, Douban, Draugiem, Facebook Messenger, Google Classroom, Kik, Papaly, Polyvore, Refind, Skype, SMS, Trello, Viber, StockTwits and Telegram in sharing networks
 * [New] Added "Comment" icon in sharing networks to send users to comment form at the webpage
 * [New] Added search box above the social networks at options page in admin, to find the desired social networks easily
-* [New] Added option to append myCRED referral ID to the urls being shared
+* [New] Added option to append myCRED referral ID to the URLs being shared
 * [Improvement] Delicious share/bookmark counts are no longer supported, as Delicious bookmark count API is dead
 * [Improvement] Improved social share icons
 * [Bugfix] Twitter share count was not working in some cases
@@ -2103,7 +2111,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Improvement] Improved Social Login icons
 
 = 7.9.3 =
-* [Bugfix] Social avatar url was broken when using LiveJournal login
+* [Bugfix] Social avatar URL was broken when using LiveJournal login
 * [Improvement] Social Share dialogue was being opened in new tab instead of the popup window, in the latest version of Google Chrome browser
 * [Improvement] 3rd party library "Simple OpenID PHP Class" being used for LiveJournal Login was generating PHP warnings with PHP7
 
@@ -2177,7 +2185,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.11.3 =
 * [Bugfix] Fixed PHP errors being generated at the websites running on PHP version < 5.4
-* Websites having directory appended to the domain as homepage url need to update the "Authorized redirect URIs" in Google client settings. Notification is being displayed in the admin for the same.
+* Websites having directory appended to the domain as homepage URL need to update the "Authorized redirect URIs" in Google client settings. Notification is being displayed in the admin for the same.
 
 = 7.11.4 =
 * [Bugfix] Plugin broke when Vkonakte login enabled on websites running PHP version < 5.4
@@ -2202,7 +2210,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.11.8 =
 * [Bugfix] Google login stopped working due to some changes in Google OAuth process
 * [Bugfix] Facebook login window was needed to be streched to see the content inside, in a few cases
-* [Bugfix] Short url option was not working for Copy Link icon
+* [Bugfix] Short URL option was not working for Copy Link icon
 
 = 7.11.9 =
 * [Bugfix] Steam login stopped working due to the endpoint related changes introduced by Steam
@@ -2253,7 +2261,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Bugfix] Browser console was showing "<fb:comments-count> has been deprecated" error with Facebook Comments enabled
 * [Bugfix] Enabling the horizontal sticky floating share bar was causing a white bar to appear at the bottom of webpages in mobile devices where floating bar was not enabled
 * [Improvement] Facebook Comments were being rendered in English instead of the language of WordPress installation when no language was specified for the Facebook Comments
-* [Improvement] Notification to save privacy policy url was appearing in the admin area even with GDPR opt-in disabled
+* [Improvement] Notification to save privacy policy URL was appearing in the admin area even with GDPR opt-in disabled
 * [Improvement] Upgraded Facebook PHP SDK to make it compatible with PHP version 7.1 and above
 * [Improvement] Meta options for individual posts/pages were also appearing for non-admin users
 * [Improvement] Options to control social avatar were appearing at user profile page even when social avatar was disabled
@@ -2359,7 +2367,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.19 =
 * [Bugfix] Tumblr share stopped working
-* [Bugfix] Querystring parameter in the url was causing changes in the share counts for the webpage
+* [Bugfix] Querystring parameter in the URL was causing changes in the share counts for the webpage
 * [Improvement] Updated Facebook login logo according to Facebook branding guidelines
 * [Improvement] Line share now works with the devices that doesn't support Line app
 * [Improvement] Removed Google+ from social share and social media follow icons
@@ -2398,7 +2406,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.28 [25 June 2019] =
 * [New] Option to trigger social login popup in the same browser tab instead of a popup window
-* [Bugfix] Webpage urls with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
+* [Bugfix] Webpage URLs with "?SuperSocializerAuth=LiveJournal" appended were appearing in "Google webmaster tools errors" in some cases
 
 = 7.12.29 [25 June 2019] =
 * [Bugfix] Fixed the typo "Tigger" in "Advanced Configuration" section at social login options page
@@ -2436,7 +2444,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 * [Security fix] Twitch login was not checking if user's email has been verified on Twitch
 
 = 7.12.36 [16 December 2019] =
-* [Bugfix] Querystring Parameters in the url of webpage were resetting the Facebook Like and Facebook Recommend counts to zero
+* [Bugfix] Querystring Parameters in the URL of webpage were resetting the Facebook Like and Facebook Recommend counts to zero
 * [Bugfix] Admin was not receiving new user notification email with Woocommerce active
 
 = 7.12.37 [1 January 2019] =
@@ -2484,7 +2492,7 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 
 = 7.12.45 [10 July 2020] =
 [Bugfix] Instagram login stopped working because of the outdated Instagram API
-[Bugfix] Bit.ly url shortener was not working because of the outdated Bit.ly API
+[Bugfix] Bit.ly URL shortener was not working because of the outdated Bit.ly API
 [Bugfix] Social Login shortcode was causing Javascript error for logged in users
 
 = 7.12.46 [24 July 2020] =
@@ -2903,3 +2911,10 @@ Yes, we can help you with it. Just drop an email at support[ at ]heateor[ dot ]c
 = 7.14.4 [2 August 2025] =
 * [Improvement] Removed Webnews from the supported social share networks
 * [Improvement] Updated the official Facebook SDK being used throughout the plugin to the version 23.0
+
+= 7.14.5 [26 September 2025] =
+* [New] Added new Social Share Networks - ChatGPT, Grok, Perplexity, Google AI, Claude 
+* [Improvement] Updated the Facebook API being used throughout the plugin to the latest version 23.0
+* [Improvement] Improvements in Vkontakte login
+* [Improvement] Vkontakte login was not fetching the email address along with other profile data of the user 
+* [Improvement] Updated the Vkontakte oauth API being used to the latest version 5.199
